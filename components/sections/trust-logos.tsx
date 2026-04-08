@@ -43,185 +43,190 @@ function TickBorder() {
 }
 
 /* ───────────────────────────────────────────────────────────────
-   LOGOS — all redrawn for accuracy
+   LOGOS — KeySol Global Partners (bold, attractive black & white)
 ─────────────────────────────────────────────────────────────── */
 
-const GreatWallLogo = () => (
-  <svg width="100" height="46" viewBox="0 0 100 46" fill="none">
-    <text x="50" y="13" textAnchor="middle" fontSize="10.5" fontWeight="400"
-      fill="#0F172A" fontFamily="sans-serif" letterSpacing="0.3">Great Wall</text>
-    {[0,1,2,3,4].map(i => (
-      <g key={i}>
-        {/* Full merlon rectangle */}
-        <rect x={4 + i*18} y={19} width={12} height={16} fill="none" stroke="#0F172A" strokeWidth="1.4"/>
-        {/* Filled top cap */}
-        <rect x={4 + i*18} y={19} width={12} height={7} fill="#0F172A"/>
-      </g>
+const WisteriaCafeLogo = () => (
+  <svg width="160" height="64" viewBox="0 0 160 64" fill="none">
+    {/* Elegant circular wreath */}
+    <circle cx="32" cy="32" r="28" stroke="#0F172A" strokeWidth="2.5" fill="none"/>
+    <circle cx="32" cy="32" r="22" stroke="#0F172A" strokeWidth="1.5" fill="none"/>
+    <circle cx="32" cy="32" r="16" stroke="#0F172A" strokeWidth="1" fill="none"/>
+    {/* Large flower petals */}
+    <ellipse cx="32" cy="18" rx="6" ry="8" fill="#0F172A"/>
+    <ellipse cx="44" cy="24" rx="6" ry="8" fill="#0F172A" transform="rotate(72, 44, 24)"/>
+    <ellipse cx="42" cy="38" rx="6" ry="8" fill="#0F172A" transform="rotate(144, 42, 38)"/>
+    <ellipse cx="22" cy="38" rx="6" ry="8" fill="#0F172A" transform="rotate(216, 22, 38)"/>
+    <ellipse cx="20" cy="24" rx="6" ry="8" fill="#0F172A" transform="rotate(288, 20, 24)"/>
+    <circle cx="32" cy="32" r="6" fill="white"/>
+    {/* Text */}
+    <text x="105" y="28" textAnchor="middle" fontSize="18" fontWeight="600" fill="#0F172A" fontFamily="Georgia, serif" fontStyle="italic">Wistéria</text>
+    <text x="105" y="50" textAnchor="middle" fontSize="18" fontWeight="600" fill="#0F172A" fontFamily="Georgia, serif" fontStyle="italic">Café</text>
+  </svg>
+);
+
+const KidsTownLogo = () => (
+  <svg width="160" height="64" viewBox="0 0 160 64" fill="none">
+    {/* Castle towers */}
+    <rect x="8" y="28" width="48" height="28" stroke="#0F172A" strokeWidth="2.5" fill="none"/>
+    <rect x="12" y="12" width="12" height="20" fill="#0F172A"/>
+    <polygon points="18,2 26,12 10,12" fill="#0F172A"/>
+    <rect x="28" y="18" width="12" height="14" fill="#0F172A"/>
+    <polygon points="34,6 42,18 26,18" fill="#0F172A"/>
+    <rect x="44" y="22" width="10" height="10" fill="#0F172A"/>
+    <polygon points="49,12 56,22 42,22" fill="#0F172A"/>
+    {/* Door */}
+    <rect x="26" y="40" width="12" height="16" fill="white" stroke="#0F172A" strokeWidth="1.5"/>
+    {/* Sparkle stars */}
+    <circle cx="6" cy="8" r="3" fill="#0F172A"/>
+    <circle cx="58" cy="10" r="3" fill="#0F172A"/>
+    <circle cx="54" cy="4" r="2" fill="#0F172A"/>
+    {/* Text */}
+    <text x="110" y="26" textAnchor="middle" fontSize="20" fontWeight="900" fill="#0F172A" fontFamily="sans-serif" letterSpacing="2">KIDS</text>
+    <text x="110" y="52" textAnchor="middle" fontSize="20" fontWeight="900" fill="#0F172A" fontFamily="sans-serif" letterSpacing="2">TOWN</text>
+  </svg>
+);
+
+const AlnafayLogo = () => (
+  <svg width="180" height="64" viewBox="0 0 180 64" fill="none">
+    {/* Bold underline accent */}
+    <rect x="10" y="48" width="140" height="4" fill="#0F172A" rx="2"/>
+    {/* Main text */}
+    <text x="80" y="42" textAnchor="middle" fontSize="34" fontWeight="900" fill="#0F172A" fontFamily="'Arial Black', sans-serif" letterSpacing="4">ALNAFAY</text>
+    {/* Vertical accent */}
+    <rect x="152" y="20" width="3" height="36" fill="#0F172A" rx="1"/>
+    <text x="165" y="50" textAnchor="middle" fontSize="10" fontWeight="700" fill="#64748B" fontFamily="sans-serif" letterSpacing="1" transform="rotate(-90, 165, 50)">STORE</text>
+  </svg>
+);
+
+const BrandDesireLogo = () => (
+  <svg width="160" height="64" viewBox="0 0 160 64" fill="none">
+    {/* Large circular emblem */}
+    <circle cx="36" cy="32" r="26" stroke="#0F172A" strokeWidth="3" fill="none"/>
+    <circle cx="36" cy="32" r="20" stroke="#0F172A" strokeWidth="2" fill="none"/>
+    <circle cx="36" cy="32" r="14" stroke="#0F172A" strokeWidth="1.5" fill="none"/>
+    {/* Sparkle stars */}
+    <circle cx="36" cy="16" r="3" fill="#0F172A"/>
+    <circle cx="48" cy="22" r="2" fill="#0F172A"/>
+    <circle cx="50" cy="36" r="2.5" fill="#0F172A"/>
+    {/* Center dot */}
+    <circle cx="36" cy="32" r="4" fill="#0F172A"/>
+    {/* Text */}
+    <text x="108" y="28" textAnchor="middle" fontSize="20" fontWeight="500" fill="#0F172A" fontFamily="Georgia, serif" fontStyle="italic">Brand</text>
+    <text x="108" y="52" textAnchor="middle" fontSize="20" fontWeight="500" fill="#0F172A" fontFamily="Georgia, serif" fontStyle="italic">Desire</text>
+  </svg>
+);
+
+const SwagSalonLogo = () => (
+  <svg width="170" height="64" viewBox="0 0 170 64" fill="none">
+    {/* Large face outline */}
+    <circle cx="32" cy="26" r="22" stroke="#0F172A" strokeWidth="2.5" fill="none"/>
+    {/* Sunglasses - bold */}
+    <rect x="16" y="20" width="12" height="8" rx="2" fill="#0F172A"/>
+    <rect x="34" y="20" width="12" height="8" rx="2" fill="#0F172A"/>
+    <rect x="28" y="22" width="6" height="3" fill="#0F172A"/>
+    {/* Beard - thick */}
+    <path d="M18 36 Q32 52 46 36" stroke="#0F172A" strokeWidth="4" fill="none" strokeLinecap="round"/>
+    <path d="M22 38 Q32 48 42 38" stroke="#0F172A" strokeWidth="2" fill="none" strokeLinecap="round"/>
+    {/* Text */}
+    <text x="115" y="24" textAnchor="middle" fontSize="14" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="3">THE SWAG</text>
+    <text x="115" y="46" textAnchor="middle" fontSize="14" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="3">SALON</text>
+  </svg>
+);
+
+const BarkaHomesLogo = () => (
+  <svg width="170" height="64" viewBox="0 0 170 64" fill="none">
+    {/* Shield shape */}
+    <path d="M28 6 L52 6 L52 38 Q40 58 28 38 Z" stroke="#0F172A" strokeWidth="3" fill="none"/>
+    {/* House inside */}
+    <polygon points="40,24 28,14 16,24" fill="#0F172A" stroke="#0F172A" strokeWidth="2" strokeLinejoin="round"/>
+    <rect x="22" y="24" width="12" height="14" fill="#0F172A"/>
+    <rect x="26" y="28" width="4" height="10" fill="white"/>
+    {/* Vertical lines in shield */}
+    <line x1="32" y1="10" x2="32" y2="44" stroke="#0F172A" strokeWidth="1" opacity="0.3"/>
+    <line x1="38" y1="10" x2="38" y2="44" stroke="#0F172A" strokeWidth="1" opacity="0.3"/>
+    {/* Text */}
+    <text x="115" y="24" textAnchor="middle" fontSize="16" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="2">BARKA</text>
+    <text x="115" y="46" textAnchor="middle" fontSize="16" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="2">HOMES</text>
+  </svg>
+);
+
+const MMBTrustLogo = () => (
+  <svg width="160" height="64" viewBox="0 0 160 64" fill="none">
+    {/* Sun with rays */}
+    <circle cx="36" cy="32" r="14" fill="#0F172A"/>
+    {[0,45,90,135,180,225,270,315].map((angle, i) => (
+      <line key={i} x1="36" y1="32" x2={36 + 22 * Math.cos((angle - 90) * Math.PI / 180)} y2={32 + 22 * Math.sin((angle - 90) * Math.PI / 180)} stroke="#0F172A" strokeWidth="3" strokeLinecap="round"/>
     ))}
-    {/* Ground line */}
-    <line x1="2" y1="35" x2="98" y2="35" stroke="#0F172A" strokeWidth="1.4"/>
+    {/* Inner circle */}
+    <circle cx="36" cy="32" r="8" fill="white"/>
+    {/* Text */}
+    <text x="108" y="24" textAnchor="middle" fontSize="14" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">MMB</text>
+    <text x="108" y="46" textAnchor="middle" fontSize="12" fontWeight="600" fill="#64748B" fontFamily="sans-serif" letterSpacing="1">TRUST</text>
   </svg>
 );
 
-const PeterbiltLogo = () => (
-  <svg width="136" height="46" viewBox="0 0 136 46" fill="none">
-    <ellipse cx="68" cy="23" rx="63" ry="19" stroke="#0F172A" strokeWidth="2.2" fill="none"/>
-    <text x="68" y="28" textAnchor="middle" fontSize="16"
-      fontWeight="700" fontStyle="italic" fill="#0F172A"
-      fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.3">Peterbilt</text>
+const NewCityParadiseLogo = () => (
+  <svg width="170" height="64" viewBox="0 0 170 64" fill="none">
+    {/* Large triangle cityscape */}
+    <polygon points="40,8 64,56 16,56" stroke="#0F172A" strokeWidth="3" fill="none"/>
+    <polygon points="40,16 56,48 24,48" fill="#0F172A"/>
+    {/* Building windows */}
+    <rect x="34" y="28" width="4" height="4" fill="white"/>
+    <rect x="42" y="32" width="4" height="4" fill="white"/>
+    <rect x="36" y="38" width="4" height="4" fill="white"/>
+    {/* Text */}
+    <text x="115" y="22" textAnchor="middle" fontSize="13" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">NEW CITY</text>
+    <text x="115" y="46" textAnchor="middle" fontSize="13" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">PARADISE</text>
   </svg>
 );
 
-/* BMW: roundel emblem (64×64) + bold "BMW" wordmark to the right */
-const BMWLogo = () => (
-  <svg width="128" height="64" viewBox="0 0 128 64" fill="none">
-    {/* ── Roundel ── center at (32,32) */}
-    {/* Outer filled black disc */}
-    <circle cx="32" cy="32" r="30" fill="#0F172A"/>
-    {/* White band ring */}
-    <circle cx="32" cy="32" r="26" fill="white"/>
-    {/* Four quadrant fills inside r=21 */}
-    {/* Top-left = black */}
-    <path d="M32,11 A21,21 0 0,0 11,32 L32,32 Z" fill="#0F172A"/>
-    {/* Top-right = white */}
-    <path d="M32,11 A21,21 0 0,1 53,32 L32,32 Z" fill="white"/>
-    {/* Bottom-right = black */}
-    <path d="M53,32 A21,21 0 0,1 32,53 L32,32 Z" fill="#0F172A"/>
-    {/* Bottom-left = white */}
-    <path d="M32,53 A21,21 0 0,1 11,32 L32,32 Z" fill="white"/>
-    {/* Inner circle border */}
-    <circle cx="32" cy="32" r="21" stroke="#0F172A" strokeWidth="1" fill="none"/>
-    {/* Cross dividers */}
-    <line x1="32" y1="11" x2="32" y2="53" stroke="#0F172A" strokeWidth="1"/>
-    <line x1="11" y1="32" x2="53" y2="32" stroke="#0F172A" strokeWidth="1"/>
-    {/* ── Wordmark beside roundel ── */}
-    <text x="95" y="39" textAnchor="middle" fontSize="20"
-      fontWeight="900" fill="#0F172A"
-      fontFamily="'Arial Black','Arial',sans-serif" letterSpacing="1.5">BMW</text>
+const Century21Logo = () => (
+  <svg width="170" height="64" viewBox="0 0 170 64" fill="none">
+    {/* Building silhouette */}
+    <rect x="10" y="12" width="16" height="44" fill="#0F172A"/>
+    <rect x="28" y="20" width="12" height="36" stroke="#0F172A" strokeWidth="2.5" fill="none"/>
+    <rect x="42" y="28" width="8" height="28" stroke="#0F172A" strokeWidth="2" fill="none"/>
+    {/* Windows */}
+    <rect x="14" y="18" width="4" height="4" fill="white"/>
+    <rect x="20" y="18" width="4" height="4" fill="white"/>
+    <rect x="14" y="26" width="4" height="4" fill="white"/>
+    <rect x="20" y="26" width="4" height="4" fill="white"/>
+    <rect x="14" y="34" width="4" height="4" fill="white"/>
+    <rect x="20" y="34" width="4" height="4" fill="white"/>
+    {/* Text */}
+    <text x="115" y="26" textAnchor="middle" fontSize="16" fontWeight="800" fill="#0F172A" fontFamily="sans-serif">CENTURY</text>
+    <text x="115" y="52" textAnchor="middle" fontSize="26" fontWeight="900" fill="#0F172A" fontFamily="'Arial Black', sans-serif">21</text>
   </svg>
 );
 
-/* Yamaha: outer circle icon + gap + YAMAHA wordmark */
-const YamahaLogo = () => (
-  <svg width="148" height="46" viewBox="0 0 148 46" fill="none">
-    <circle cx="22" cy="23" r="19" stroke="#0F172A" strokeWidth="1.8" fill="none"/>
-    {/* Three spokes — 120° apart */}
-    <line x1="22" y1="23" x2="22"  y2="4"    stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round"/>
-    <line x1="22" y1="23" x2="5.5" y2="35.5" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round"/>
-    <line x1="22" y1="23" x2="38.5" y2="35.5" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round"/>
-    {/* Dots at spoke tips */}
-    <circle cx="22"  cy="4"    r="3" fill="#0F172A"/>
-    <circle cx="5.5" cy="35.5" r="3" fill="#0F172A"/>
-    <circle cx="38.5" cy="35.5" r="3" fill="#0F172A"/>
-    {/* YAMAHA wordmark — shifted right for clear gap */}
-    <text x="100" y="28" textAnchor="middle" fontSize="17"
-      fontWeight="700" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">YAMAHA</text>
-  </svg>
-);
-
-/* Mercedes-Benz: exact 3-pointed star logo
-   Simple and accurate: thick ring + 3 separate arm paths with concave curves */
-const MercedesLogo = () => (
-  <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
-    {/* Thick outer ring */}
-    <circle cx="50" cy="50" r="45" stroke="#0F172A" strokeWidth="5" fill="none"/>
-    {/* Star: 3 arms drawn as filled paths. Each arm = narrow spike with inward-curving sides.
-        Tips at r=42: top(50,8), lower-right(86.4,71), lower-left(13.6,71) */}
-    {/* TOP ARM */}
-    <path d="M50,8 Q53,28 56,46 L50,50 L44,46 Q47,28 50,8 Z" fill="#0F172A"/>
-    {/* LOWER-RIGHT ARM */}
-    <path d="M86.4,71 Q68,68 54,54 L50,50 L52,44 Q70,52 86.4,71 Z" fill="#0F172A"/>
-    {/* LOWER-LEFT ARM */}
-    <path d="M13.6,71 Q32,68 46,54 L50,50 L48,44 Q30,52 13.6,71 Z" fill="#0F172A"/>
-  </svg>
-);
-
-/* Close Brothers: ring icon + two-line text — icon properly sized & positioned */
-const CloseBrothersLogo = () => (
-  <svg width="144" height="46" viewBox="0 0 144 46" fill="none">
-    <circle cx="13" cy="21" r="10" stroke="#0F172A" strokeWidth="1.8" fill="none"/>
-    <circle cx="13" cy="21" r="5"  fill="#0F172A"/>
-    <text x="82" y="17" textAnchor="middle" fontSize="13.5"
-      fontWeight="700" fill="#0F172A" fontFamily="sans-serif">Close Brothers</text>
-    <text x="82" y="30" textAnchor="middle" fontSize="8.5"
-      fill="#64748B" fontFamily="sans-serif" letterSpacing="0.1">Modern Merchant Banking</text>
-  </svg>
-);
-
-/* Nissan: premium emblem — thick outer oval, solid horizontal bar with raised edges, NISSAN wordmark */
-const NissanLogo = () => (
-  <svg width="96" height="50" viewBox="0 0 96 50" fill="none">
-    {/* Outer oval — thicker stroke for premium feel */}
-    <ellipse cx="48" cy="25" rx="45" ry="23" stroke="#0F172A" strokeWidth="2.8" fill="none"/>
-    {/* Horizontal bar: solid filled rectangle spanning the oval width */}
-    <rect x="5" y="17.5" width="86" height="15" fill="#0F172A" rx="1"/>
-    {/* White inner area of bar for text */}
-    <rect x="5" y="19" width="86" height="12" fill="white"/>
-    {/* Top and bottom bar edge lines for definition */}
-    <line x1="5"  y1="17.5" x2="91" y2="17.5" stroke="#0F172A" strokeWidth="2.2"/>
-    <line x1="5"  y1="32.5" x2="91" y2="32.5" stroke="#0F172A" strokeWidth="2.2"/>
-    {/* NISSAN wordmark — bold, spaced */}
-    <text x="48" y="28.5" textAnchor="middle" fontSize="10"
-      fontWeight="900" fill="#0F172A" fontFamily="'Arial Black','Arial',sans-serif" letterSpacing="4">NISSAN</text>
-  </svg>
-);
-
-/* Toyota: correct 3-oval emblem — body oval, vertical center oval, top crossbar oval */
-const ToyotaLogo = () => (
-  <svg width="84" height="52" viewBox="0 0 84 52" fill="none">
-    {/* Large body oval (left) */}
-    <ellipse cx="36" cy="24" rx="22" ry="15" stroke="#0F172A" strokeWidth="2" fill="none"/>
-    {/* Large body oval (right) — symmetric */}
-    <ellipse cx="48" cy="24" rx="22" ry="15" stroke="#0F172A" strokeWidth="2" fill="none"/>
-    {/* Vertical center oval — white fill to cut through body ovals */}
-    <ellipse cx="42" cy="24" rx="8.5" ry="15" stroke="#0F172A" strokeWidth="2" fill="white"/>
-    {/* Top horizontal crossbar oval */}
-    <ellipse cx="42" cy="11" rx="17" ry="7" stroke="#0F172A" strokeWidth="2" fill="none"/>
-    {/* Wordmark */}
-    <text x="42" y="46" textAnchor="middle" fontSize="8"
-      fontWeight="700" fill="#0F172A" fontFamily="sans-serif" letterSpacing="3.5">TOYOTA</text>
-  </svg>
-);
-
-const PaccarLogo = () => (
-  <svg width="122" height="46" viewBox="0 0 122 46" fill="none">
-    <text x="61" y="33" textAnchor="middle" fontSize="29"
-      fontWeight="900" fill="#0F172A"
-      fontFamily="'Arial Black','Arial',sans-serif" letterSpacing="0.5">PACCAR</text>
-  </svg>
-);
-
-const HaydockLogo = () => (
-  <svg width="112" height="46" viewBox="0 0 112 46" fill="none">
-    <text x="56" y="24" textAnchor="middle" fontSize="18"
-      fontWeight="700" fill="#0F172A"
-      fontFamily="Georgia,'Times New Roman',serif">Haydock</text>
-    <text x="56" y="38" textAnchor="middle" fontSize="11"
-      fill="#555" fontFamily="sans-serif" letterSpacing="0.4">Finance</text>
-  </svg>
-);
-
-const IsuzuLogo = () => (
-  <svg width="98" height="46" viewBox="0 0 98 46" fill="none">
-    <text x="49" y="24" textAnchor="middle" fontSize="17"
-      fontWeight="900" fill="#0F172A"
-      fontFamily="'Arial Black','Arial',sans-serif" letterSpacing="2">ISUZU</text>
-    <text x="49" y="37" textAnchor="middle" fontSize="10"
-      fill="#555" fontFamily="sans-serif" letterSpacing="1">Leasing</text>
+const SheherSaazLogo = () => (
+  <svg width="160" height="64" viewBox="0 0 160 64" fill="none">
+    {/* Geometric blocks */}
+    <rect x="10" y="14" width="18" height="18" fill="#0F172A"/>
+    <rect x="30" y="14" width="10" height="32" fill="#0F172A"/>
+    <rect x="42" y="32" width="14" height="14" fill="#0F172A"/>
+    {/* Accent squares */}
+    <rect x="14" y="18" width="6" height="6" fill="white"/>
+    <rect x="24" y="24" width="4" height="4" fill="white"/>
+    <rect x="46" y="38" width="6" height="6" fill="white"/>
+    {/* Text */}
+    <text x="110" y="26" textAnchor="middle" fontSize="14" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">Sheher</text>
+    <text x="110" y="46" textAnchor="middle" fontSize="14" fontWeight="800" fill="#0F172A" fontFamily="sans-serif" letterSpacing="1">Saaz</text>
   </svg>
 );
 
 const brands = [
-  { name: "Great Wall",     logo: <GreatWallLogo />,     pad: 52 },
-  { name: "Peterbilt",      logo: <PeterbiltLogo />,     pad: 44 },
-  { name: "BMW",            logo: <BMWLogo />,            pad: 52 },
-  { name: "Yamaha",         logo: <YamahaLogo />,         pad: 44 },
-  { name: "Mercedes-Benz",  logo: <MercedesLogo />,       pad: 62 },
-  { name: "Close Brothers", logo: <CloseBrothersLogo />,  pad: 36 },
-  { name: "Nissan",         logo: <NissanLogo />,         pad: 52 },
-  { name: "PACCAR",         logo: <PaccarLogo />,         pad: 44 },
-  { name: "Haydock",        logo: <HaydockLogo />,        pad: 48 },
-  { name: "Isuzu",          logo: <IsuzuLogo />,          pad: 52 },
+  { name: "Wisteria Café",      logo: <WisteriaCafeLogo />,      pad: 56 },
+  { name: "Kids Town",         logo: <KidsTownLogo />,         pad: 56 },
+  { name: "ALNAFAY Store",     logo: <AlnafayLogo />,          pad: 52 },
+  { name: "Brand Desire",      logo: <BrandDesireLogo />,      pad: 52 },
+  { name: "The Swag Salon",    logo: <SwagSalonLogo />,        pad: 64 },
+  { name: "Barka Homes",       logo: <BarkaHomesLogo />,       pad: 56 },
+  { name: "MMB Trust",         logo: <MMBTrustLogo />,         pad: 52 },
+  { name: "New City Paradise", logo: <NewCityParadiseLogo />,  pad: 56 },
+  { name: "Century 21",        logo: <Century21Logo />,        pad: 56 },
+  { name: "Sheher Saaz",       logo: <SheherSaazLogo />,       pad: 52 },
 ];
 
 export function TrustLogos() {
@@ -298,7 +303,7 @@ export function TrustLogos() {
                 flexShrink:0,
                 paddingLeft: b.pad / 2,
                 paddingRight: b.pad / 2,
-                height:64,
+                height:80,
                 display:"flex", alignItems:"center", justifyContent:"center",
               }}>
                 {b.logo}

@@ -224,6 +224,17 @@ function NewsletterBanner() {
     if (email) setSubmitted(true);
   };
 
+  const stripes = [0, 1, 2, 3, 4, 5, 6, 7];
+  const topCards = [
+    { top: 22, left: 24, w: 115, h: 88, delay: 0 },
+    { top: 22, left: 150, w: 88, h: 88, delay: 0.1 },
+    { top: 22, left: 250, w: 65, h: 88, delay: 0.2 },
+  ];
+  const bottomCards = [
+    { top: 218, left: 24, w: 168, h: 62 },
+    { top: 292, left: 24, w: 168, h: 62 },
+  ];
+
   return (
     <motion.div
       ref={ref}
@@ -237,23 +248,22 @@ function NewsletterBanner() {
         position: "relative",
       }}
     >
-      {/* ── LEFT PANEL ── */}
+      {/* LEFT PANEL */}
       <div style={{
         flex: "0 0 50%",
         background: "linear-gradient(145deg, #e8fafa 0%, #c0f0f4 35%, #82dde6 70%, #4fc8d8 100%)",
         position: "relative",
         overflow: "visible",
       }}>
-
-        {/* Animated vertical stripes */}
-        {[0,1,2,3,4,5,6,7].map((i) => (
+        {stripes.map((i) => (
           <motion.div
             key={i}
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4 + i * 0.4, repeat: Infinity, delay: i * 0.3 }}
             style={{
               position: "absolute",
-              top: 0, bottom: 0,
+              top: 0,
+              bottom: 0,
               left: `${10 + i * 11}%`,
               width: 1,
               background: `rgba(255,255,255,${0.12 + (i % 3) * 0.08})`,
@@ -261,20 +271,18 @@ function NewsletterBanner() {
           />
         ))}
 
-        {/* Rounded rectangle cards — top row */}
-        {[
-          { top: 22, left: 24, w: 115, h: 88, delay: 0 },
-          { top: 22, left: 150, w: 88, h: 88, delay: 0.1 },
-          { top: 22, left: 250, w: 65, h: 88, delay: 0.2 },
-        ].map((r, i) => (
+        {topCards.map((r, i) => (
           <motion.div
             key={i}
             initial={{ y: 10 }}
             animate={inView ? { y: 0 } : {}}
             transition={{ duration: 0.7, delay: r.delay }}
             style={{
-              position: "absolute", top: r.top, left: r.left,
-              width: r.w, height: r.h,
+              position: "absolute",
+              top: r.top,
+              left: r.left,
+              width: r.w,
+              height: r.h,
               border: "1.5px solid rgba(80,185,205,0.5)",
               borderRadius: 14,
               background: "rgba(255,255,255,0.12)",
@@ -283,57 +291,40 @@ function NewsletterBanner() {
           />
         ))}
 
-        {/* Bottom line-filled cards */}
-        {[
-          { top: 218, left: 24, w: 168, h: 62 },
-          { top: 292, left: 24, w: 168, h: 62 },
-        ].map((r, i) => (
-          <div key={i} style={{
-            position: "absolute", top: r.top, left: r.left,
-            width: r.w, height: r.h,
-            border: "1.5px solid rgba(80,185,205,0.45)",
-            borderRadius: 12,
-            background: "rgba(255,255,255,0.08)",
-            overflow: "hidden",
-          }}>
-            {[0,1,2,3,4].map((l) => (
-              <div key={l} style={{
-                position: "absolute",
-                top: 10 + l * 10, left: 10, right: 10, height: 1,
-                background: "rgba(80,185,205,0.4)",
-                borderRadius: 1,
-              }} />
+        {bottomCards.map((r, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              top: r.top,
+              left: r.left,
+              width: r.w,
+              height: r.h,
+              border: "1.5px solid rgba(80,185,205,0.45)",
+              borderRadius: 12,
+              background: "rgba(255,255,255,0.08)",
+              overflow: "hidden",
+            }}
+          >
+            {[0, 1, 2, 3, 4].map((l) => (
+              <div
+                key={l}
+                style={{
+                  position: "absolute",
+                  top: 10 + l * 10,
+                  left: 10,
+                  right: 10,
+                  height: 1,
+                  background: "rgba(80,185,205,0.4)",
+                  borderRadius: 1,
+                }}
+              />
             ))}
           </div>
         ))}
-
-        {/* Top-down car — using NETSOL-style 3D render */}
-        <motion.div
-          initial={{ x: 40 }}
-          animate={inView ? { x: 0 } : {}}
-          transition={{ duration: 1, type: "spring", stiffness: 55 }}
-          style={{
-            position: "absolute",
-            top: "10%",
-            left: "38%",
-            transform: "translate(-50%, 0%) rotate(180deg)",
-            width: "52%",
-            zIndex: 10,
-          }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=600&q=80&fit=crop"
-            alt="Top down car"
-            style={{ width: "100%", display: "block" }}
-            onError={(e) => {
-              const img = e.currentTarget as HTMLImageElement;
-              img.style.display = "none";
-            }}
-          />
-        </motion.div>
       </div>
 
-      {/* ── RIGHT PANEL ── */}
+      {/* RIGHT PANEL */}
       <div style={{
         flex: "0 0 50%",
         background: "linear-gradient(145deg, #1562d6 0%, #1e72e8 30%, #1a9de0 70%, #12b8e8 100%)",
@@ -344,41 +335,42 @@ function NewsletterBanner() {
         position: "relative",
         overflow: "hidden",
       }}>
-        {/* Fine dot grid */}
         <div style={{
-          position: "absolute", inset: 0,
+          position: "absolute",
+          inset: 0,
           backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.09) 1px, transparent 1px)",
-          backgroundSize: "26px 26px", pointerEvents: "none",
+          backgroundSize: "26px 26px",
+          pointerEvents: "none",
         }} />
-
-        {/* Soft inner glow top-right */}
         <div style={{
-          position: "absolute", top: -60, right: -60,
-          width: 300, height: 300, borderRadius: "50%",
+          position: "absolute",
+          top: -60,
+          right: -60,
+          width: 300,
+          height: 300,
+          borderRadius: "50%",
           background: "radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%)",
           pointerEvents: "none",
         }} />
-
         <div style={{ position: "relative", zIndex: 1 }}>
-
-          {/* Tag pill */}
           <motion.div
             initial={{ x: -16 }}
             animate={inView ? { x: 0 } : {}}
             transition={{ duration: 0.6 }}
             style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
               background: "rgba(255,255,255,0.15)",
               border: "1px solid rgba(255,255,255,0.25)",
-              borderRadius: 99, padding: "6px 16px", marginBottom: 22,
+              borderRadius: 99,
+              padding: "6px 16px",
+              marginBottom: 22,
             }}
           >
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#7ef4ff" }} />
-            <span style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.9)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              Newsletter
-            </span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.9)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Newsletter</span>
           </motion.div>
-
           <motion.h2
             initial={{ x: -20 }}
             animate={inView ? { x: 0 } : {}}
@@ -396,18 +388,16 @@ function NewsletterBanner() {
             Subscribe to our newsletter to get{" "}
             <strong style={{ fontWeight: 700 }}>the latest news in your inbox.</strong>
           </motion.h2>
-
-          {/* Form */}
           <motion.form
             initial={{ x: -16 }}
             animate={inView ? { x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             onSubmit={handleSubmit}
             style={{
-              display: "flex", gap: 0, maxWidth: 500,
-              boxShadow: focused
-                ? "0 0 0 3px rgba(255,255,255,0.4), 0 16px 40px rgba(0,0,0,0.2)"
-                : "0 8px 30px rgba(0,0,0,0.18)",
+              display: "flex",
+              gap: 0,
+              maxWidth: 500,
+              boxShadow: focused ? "0 0 0 3px rgba(255,255,255,0.4), 0 16px 40px rgba(0,0,0,0.2)" : "0 8px 30px rgba(0,0,0,0.18)",
               borderRadius: 12,
               overflow: "hidden",
               transition: "box-shadow 0.3s ease",
@@ -417,7 +407,7 @@ function NewsletterBanner() {
               type="email"
               placeholder="abc@example.com"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               style={{
@@ -446,14 +436,12 @@ function NewsletterBanner() {
                 transition: "background 0.25s ease",
                 letterSpacing: "0.01em",
               }}
-              onMouseEnter={e => { if (!submitted) e.currentTarget.style.background = "#1e40af"; }}
-              onMouseLeave={e => { if (!submitted) e.currentTarget.style.background = "#1d4ed8"; }}
+              onMouseEnter={(e) => { if (!submitted) e.currentTarget.style.background = "#1e40af"; }}
+              onMouseLeave={(e) => { if (!submitted) e.currentTarget.style.background = "#1d4ed8"; }}
             >
               {submitted ? "✓ Subscribed!" : "Subscribe"}
             </button>
           </motion.form>
-
-          {/* Trust note */}
           <motion.p
             initial={{ x: -12 }}
             animate={inView ? { x: 0 } : {}}

@@ -436,7 +436,7 @@ function ContactForm() {
 
         {step === "error" && (
           <p style={{ fontSize: 13, color: "#DC2626", textAlign: "center", fontWeight: 600, background: "#FEF2F2", padding: "10px 16px", borderRadius: 10, border: "1px solid #FECACA" }}>
-            Something went wrong. Please try again or email us directly at hello@keysolglobal.com
+            Something went wrong. Please try again or email us directly at Wajahat@keysolglobal.com
           </p>
         )}
 
@@ -607,22 +607,22 @@ export default function ContactPage() {
             {/* Contact info cards */}
             <FadeUp delay={0.25}>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <InfoCard color="#2563EB" href="mailto:hello@keysolglobal.com"
+                <InfoCard color="#2563EB" href="mailto:Wajahat@keysolglobal.com"
                   title="Email us"
-                  value="hello@keysolglobal.com"
+                  value="Wajahat@keysolglobal.com"
                   sub="We reply within 2 hours"
                   icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>}
                 />
-                <InfoCard color="#059669" href="tel:+441234567890"
+                <InfoCard color="#059669" href="tel:+923104398921"
                   title="Call us"
-                  value="+44 (0) 123 456 7890"
+                  value="+92 310 4398921"
                   sub="Mon–Fri 9AM–6PM GMT"
                   icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.87-1.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>}
                 />
                 <InfoCard color="#7C3AED"
-                  title="Office"
-                  value="London, United Kingdom"
-                  sub="Global delivery — remote-first"
+                  title="Dubai Head Office"
+                  value="Office #38, NBD Building, Al Mamzar, Dubai"
+                  sub="Al Wuheida Road · +971 4 286 5433"
                   icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>}
                 />
               </div>
@@ -755,7 +755,7 @@ export default function ContactPage() {
                 <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.65, marginBottom: 24 }}>
                   30 minutes with a senior consultant. No sales pitch — just expert insight into your challenge.
                 </p>
-                <motion.a href="/consultation/" whileHover={{ y: -2 }}
+                <motion.a href="https://api.whatsapp.com/send/?phone=%2B923104398921&text=Hi%20KeySol%20Global%2C%20I'd%20like%20to%20book%20a%20free%20strategy%20session&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }}
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     background: "linear-gradient(135deg,#2563EB,#1D4ED8)",
@@ -854,7 +854,7 @@ export default function ContactPage() {
                 Send a message
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </motion.a>
-              <motion.a href="mailto:hello@keysolglobal.com" whileHover={{ y: -2 }}
+              <motion.a href="mailto:Wajahat@keysolglobal.com" whileHover={{ y: -2 }}
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   background: "rgba(255,255,255,0.07)", backdropFilter: "blur(8px)",
@@ -863,7 +863,7 @@ export default function ContactPage() {
                   border: "1.5px solid rgba(255,255,255,0.15)",
                 }}
               >
-                hello@keysolglobal.com
+                Wajahat@keysolglobal.com
               </motion.a>
             </div>
           </FadeUp>

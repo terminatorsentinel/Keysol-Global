@@ -259,7 +259,7 @@ const INTENTS: Intent[] = [
     ],
     response: {
       topic: "Careers",
-      text: "**Careers at KeySol Global** — We're always looking for exceptional talent:\n\n🚀 **Why Join Us?**\nWork on cutting-edge AI, enterprise, and digital projects for clients across multiple industries and regions. Fast-paced, collaborative, and genuinely exciting work.\n\n💼 **Roles We Typically Hire For**\n• AI/ML Engineers & LLM Specialists\n• Full-Stack & Cloud Engineers\n• Digital Growth Specialists (SEO, PPC, CRO)\n• UX/UI Designers\n• Technology Consultants & Strategists\n• Project & Delivery Managers\n\n🌍 **Remote-First**\nWe operate with a distributed, remote-friendly model — hiring talent wherever the best people are.\n\n📧 **How to Apply**\nSend your CV and a note about what excites you to **hello@keysolglobal.com** with the subject line 'Careers — [Role]'.",
+      text: "**Careers at KeySol Global** — We're always looking for exceptional talent:\n\n🚀 **Why Join Us?**\nWork on cutting-edge AI, enterprise, and digital projects for clients across multiple industries and regions. Fast-paced, collaborative, and genuinely exciting work.\n\n💼 **Roles We Typically Hire For**\n• AI/ML Engineers & LLM Specialists\n• Full-Stack & Cloud Engineers\n• Digital Growth Specialists (SEO, PPC, CRO)\n• UX/UI Designers\n• Technology Consultants & Strategists\n• Project & Delivery Managers\n\n🌍 **Remote-First**\nWe operate with a distributed, remote-friendly model — hiring talent wherever the best people are.\n\n📧 **How to Apply**\nSend your CV and a note about what excites you to **Wajahat@keysolglobal.com** with the subject line 'Careers — [Role]'.",
       links: [{ label: "Contact Us →", href: "/contact/" }],
       chips: ["What roles are open?", "Is it remote?", "Culture & benefits", "Apply now"],
     },
@@ -295,7 +295,7 @@ const INTENTS: Intent[] = [
     ],
     response: {
       topic: "Contact",
-      text: "I'd be happy to connect you with our team! Here are your options:\n\n📋 **Contact Form**\nFill in your details — the right team member responds within **24 business hours** with a thoughtful, tailored response.\n\n📞 **Free Discovery Call**\nBook a complimentary 30-minute strategy call with a senior consultant — no obligation, just a focused conversation about your goals.\n\n✉️ **Direct Email**\nhello@keysolglobal.com — for general enquiries, partnerships, or anything else.\n\n⚡ **What to Expect**\nWe take a consultative approach from the very first interaction. No generic sales pitches — we listen carefully and only recommend what genuinely fits your needs.",
+      text: "I'd be happy to connect you with our team! Here are your options:\n\n📋 **Contact Form**\nFill in your details — the right team member responds within **24 business hours** with a thoughtful, tailored response.\n\n📞 **Free Discovery Call**\nBook a complimentary 30-minute strategy call with a senior consultant — no obligation, just a focused conversation about your goals.\n\n✉️ **Direct Email**\nWajahat@keysolglobal.com — for general enquiries, partnerships, or anything else.\n\n⚡ **What to Expect**\nWe take a consultative approach from the very first interaction. No generic sales pitches — we listen carefully and only recommend what genuinely fits your needs.",
       links: [
         { label: "Contact Us →", href: "/contact/" },
         { label: "Book a Free Consultation →", href: "/consultancy/" },
