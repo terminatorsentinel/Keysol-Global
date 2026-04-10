@@ -59,10 +59,10 @@ export function CTASection() {
     }}>
 
       {/* ── FEATURED READS ── */}
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "100px 48px 80px" }}>
+      <div className="blog-section-padding" style={{ maxWidth: 1240, margin: "0 auto", padding: "100px 48px 80px" }}>
 
         {/* Header row */}
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 52 }}>
+        <div className="blog-header-row" style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 52 }}>
           <div style={{ maxWidth: 520 }}>
             <motion.h2
               initial={{ y: 20 }} animate={inView ? { y: 0 } : {}}
@@ -121,7 +121,7 @@ export function CTASection() {
         </div>
 
         {/* Cards grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
+        <div className="blog-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
           {articles.map((article, i) => (
             <motion.a
               key={i}
@@ -239,6 +239,7 @@ function NewsletterBanner() {
     <motion.div
       ref={ref}
       initial={{ y: 0 }}
+      className="newsletter-wrapper"
       style={{
         width: "100%",
         display: "flex",
@@ -249,7 +250,7 @@ function NewsletterBanner() {
       }}
     >
       {/* LEFT PANEL */}
-      <div style={{
+      <div className="newsletter-left" style={{
         flex: "0 0 50%",
         background: "linear-gradient(145deg, #e8fafa 0%, #c0f0f4 35%, #82dde6 70%, #4fc8d8 100%)",
         position: "relative",
@@ -325,7 +326,7 @@ function NewsletterBanner() {
       </div>
 
       {/* RIGHT PANEL */}
-      <div style={{
+      <div className="newsletter-right" style={{
         flex: "0 0 50%",
         background: "linear-gradient(145deg, #1562d6 0%, #1e72e8 30%, #1a9de0 70%, #12b8e8 100%)",
         display: "flex",
@@ -393,6 +394,7 @@ function NewsletterBanner() {
             animate={inView ? { x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             onSubmit={handleSubmit}
+            className="newsletter-form"
             style={{
               display: "flex",
               gap: 0,

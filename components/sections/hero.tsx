@@ -782,9 +782,9 @@ export function Hero() {
   const slideColor = industrySlides[current].color;
   return (
     <section className="relative bg-white overflow-hidden" style={{ paddingTop:68 }}>
-      <div className="w-full max-w-7xl mx-auto" style={{ paddingLeft:40, paddingRight:40 }}>
-        <div className="grid items-center" style={{ minHeight:"calc(100vh - 100px)", gridTemplateColumns:"1fr 1fr", gap:48 }}>
-          <div className="flex flex-col" style={{ gap:28, maxWidth:480, paddingTop:16 }}>
+      <div className="w-full max-w-7xl mx-auto hero-outer-pad" style={{ paddingLeft:40, paddingRight:40 }}>
+        <div className="grid items-center hero-grid" style={{ minHeight:"calc(100vh - 100px)", gridTemplateColumns:"1fr 1fr", gap:48 }}>
+          <div className="hero-text flex flex-col" style={{ gap:28, maxWidth:480, paddingTop:16 }}>
             <div style={{ display:"flex", alignItems:"center", gap:10 }}>
               <div style={{ width:2, height:18, background:"#9CA3AF", borderRadius:2, flexShrink:0 }}/>
               <span style={{ fontSize:13, color:"#6B7280", fontWeight:400, letterSpacing:"0.01em" }}>Shaping Smarter Business</span>
@@ -793,7 +793,7 @@ export function Hero() {
               {["AI-enabled ecosystems","that make commerce"].map((line,i) => (
                 <h1 key={i} style={{ fontSize:"clamp(2.4rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, color:"#1e2d3d", letterSpacing:"-0.02em", margin:0, whiteSpace:"nowrap" }}>{line}</h1>
               ))}
-              <div style={{ fontSize:"clamp(2.4rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, letterSpacing:"-0.02em", whiteSpace:"nowrap" }}>
+              <div className="hero-text-animated" style={{ fontSize:"clamp(2.4rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, letterSpacing:"-0.02em", whiteSpace:"nowrap" }}>
                 <AnimatedWord word={words[wordIndex]} color={slideColor}/>
               </div>
             </div>
@@ -816,7 +816,7 @@ export function Hero() {
               </Link>
             </div>
           </div>
-          <div className="hidden lg:flex items-center justify-end" style={{ paddingRight:8 }}>
+          <div className="hero-card-mobile lg:flex items-center justify-end" style={{ display:"none", paddingRight:8 }}>
             <HeroCard current={current}/>
           </div>
         </div>

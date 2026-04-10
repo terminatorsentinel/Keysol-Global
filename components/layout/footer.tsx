@@ -26,11 +26,11 @@ export function Footer() {
     <footer style={{ background: "#2a2a2a", color: "#fff", fontFamily: "-apple-system, BlinkMacSystemFont, 'Inter', sans-serif", borderTop: "4px solid #1d4ed8" }}>
 
       {/* ── MAIN FOOTER ── */}
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "35px 53px 26px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "198px 1fr 1fr 1fr 1fr", gap: "0 31px" }}>
+      <div className="footer-main-padding" style={{ maxWidth: 1280, margin: "0 auto", padding: "35px 53px 26px" }}>
+        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "198px 1fr 1fr 1fr 1fr", gap: "0 31px" }}>
 
           {/* COL 1: Logo + Company + Investors */}
-          <div>
+          <div className="footer-col-logo">
             <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", marginBottom: 20 }}>
               <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
                 <rect width="28" height="28" rx="4" fill="white"/>
@@ -159,9 +159,9 @@ export function Footer() {
 
       {/* ── BOTTOM BAR ── */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "15px 53px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="footer-bottom-bar" style={{ maxWidth: 1280, margin: "0 auto", padding: "15px 53px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <p style={{ fontSize: 13, color: "#888" }}>© {new Date().getFullYear()} KeySol Global. All Rights Reserved.</p>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="footer-bottom-links" style={{ display: "flex", alignItems: "center" }}>
             {[
               { name: "Terms of Use", href: "/terms/" },
               { name: "Privacy Policy", href: "/privacy/" },
