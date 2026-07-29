@@ -39,13 +39,23 @@ export function Navbar() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-200",
-        isScrolled ? "shadow-[0_1px_0_0_#e5e7eb]" : "border-b border-[#f0f0f0]"
-      )}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: "white",
+        height: 64,
+        borderBottom: "1px solid #f0f0f0",
+        boxShadow: isScrolled
+          ? "0 2px 16px rgba(0,0,0,0.08)"
+          : "none",
+        transition: "box-shadow 0.2s ease",
+      }}
     >
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 40px" }} className="section-mobile-pad">
-        <nav className="flex items-center justify-between" style={{ height: 64 }}>
+      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 40px", height: "100%" }} className="section-mobile-pad">
+        <nav className="flex items-center justify-between" style={{ height: "100%" }}>
 
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
