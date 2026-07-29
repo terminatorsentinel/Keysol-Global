@@ -44,7 +44,7 @@ export function Navbar() {
         isScrolled ? "shadow-[0_1px_0_0_#e5e7eb]" : "border-b border-[#f0f0f0]"
       )}
     >
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 40px" }} className="section-mobile-pad">
         <nav className="flex items-center justify-between" style={{ height: 64 }}>
 
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
@@ -276,18 +276,37 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div style={{ padding: "8px 24px" }}>
+            <div style={{ padding: "8px 16px 16px" }}>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="flex items-center px-3 py-3 text-[#374151] text-sm font-medium hover:bg-[#F0F7FF] hover:text-[#1A56DB] rounded-lg transition-colors"
+                  className="flex items-center px-3 py-3.5 text-[#374151] text-sm font-medium hover:bg-[#F0F7FF] hover:text-[#1A56DB] rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                   {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 ml-1 text-[#9CA3AF]" />}
                 </Link>
               ))}
+              <div style={{ borderTop: "1px solid #F1F5F9", marginTop: 8, paddingTop: 12 }}>
+                <Link
+                  href="/consultation/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    display: "block",
+                    background: "#2563EB",
+                    color: "white",
+                    borderRadius: 10,
+                    padding: "13px 20px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    textAlign: "center",
+                  }}
+                >
+                  Book Free Consultation
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

@@ -97,7 +97,16 @@ body {
 }
 
 /* ─────────────────────────────────────────
+   GLOBAL: Prevent horizontal overflow
+───────────────────────────────────────── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─────────────────────────────────────────
    MOBILE RESPONSIVE OVERRIDES (< 768px)
+   Goal: same desktop design, scaled to fit
 ───────────────────────────────────────── */
 
 /* Hero */
@@ -109,40 +118,44 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  /* ── HERO ── */
+  .hero-outer-pad {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
   .hero-grid {
     grid-template-columns: 1fr !important;
     min-height: auto !important;
-    padding-top: 24px !important;
-    padding-bottom: 40px !important;
-    gap: 32px !important;
+    padding-top: 20px !important;
+    padding-bottom: 36px !important;
+    gap: 28px !important;
   }
   .hero-text {
     max-width: 100% !important;
   }
   .hero-text h1 {
     white-space: normal !important;
-    font-size: clamp(1.9rem, 8vw, 2.6rem) !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem) !important;
   }
   .hero-text-animated {
     white-space: normal !important;
-    font-size: clamp(1.9rem, 8vw, 2.6rem) !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem) !important;
   }
   .hero-card-mobile {
     display: flex !important;
-    justify-content: center;
+    justify-content: center !important;
     padding-right: 0 !important;
   }
   .hero-card-mobile > div {
-    width: 280px !important;
-    height: 280px !important;
+    width: min(340px, 90vw) !important;
   }
-  /* Fix outer hero container padding */
-  .hero-outer-pad {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+  .hero-card-mobile > div > div:first-child {
+    width: min(340px, 90vw) !important;
+    height: min(340px, 90vw) !important;
   }
 
-  /* Blog cards */
+  /* ── BLOG / CTA SECTION ── */
   .blog-cards-grid {
     grid-template-columns: 1fr !important;
   }
@@ -151,23 +164,23 @@ body {
     gap: 16px !important;
   }
   .blog-section-padding {
-    padding: 60px 20px 48px !important;
+    padding: 52px 16px 40px !important;
   }
 
-  /* Newsletter */
+  /* ── NEWSLETTER ── */
   .newsletter-wrapper {
     flex-direction: column !important;
     min-height: auto !important;
   }
   .newsletter-left {
     flex: none !important;
-    min-height: 140px !important;
+    min-height: 120px !important;
     width: 100% !important;
   }
   .newsletter-right {
     flex: none !important;
     width: 100% !important;
-    padding: 40px 24px !important;
+    padding: 36px 20px !important;
   }
   .newsletter-form {
     flex-direction: column !important;
@@ -180,37 +193,136 @@ body {
   }
   .newsletter-form button {
     border-radius: 10px !important;
-    padding: 15px 24px !important;
+    padding: 14px 20px !important;
   }
 
-  /* Footer */
+  /* ── FOOTER ── */
   .footer-main-padding {
-    padding: 40px 20px 28px !important;
+    padding: 36px 16px 24px !important;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: 32px 20px !important;
+    gap: 28px 16px !important;
   }
   .footer-col-logo {
     grid-column: 1 / -1 !important;
   }
   .footer-bottom-bar {
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 10px !important;
     align-items: flex-start !important;
-    padding: 16px 20px !important;
+    padding: 14px 16px !important;
   }
   .footer-bottom-links {
     flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-  .footer-bottom-links span[style*="margin: 0 10px"] {
-    margin: 0 6px !important;
+    gap: 6px !important;
   }
 
-  /* General section padding */
+  /* ── STATS SECTION ── */
+  .stats-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .stats-cards-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+  .stats-section-pad {
+    padding: 64px 16px !important;
+  }
+  .stat-card-inner {
+    padding: 28px 20px !important;
+  }
+  .stat-number {
+    font-size: 36px !important;
+  }
+
+  /* ── PROCESS SECTION ── */
+  .process-steps-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  .process-section-pad {
+    padding: 64px 16px !important;
+  }
+  .process-step-pad {
+    padding: 28px 20px !important;
+  }
+  .process-connector-line {
+    display: none !important;
+  }
+
+  /* ── WHO WE SERVE ── */
+  .who-serve-section-pad {
+    padding: 64px 16px !important;
+  }
+  .who-serve-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonials-photo-panel {
+    display: none !important;
+  }
+  .testimonials-text-pad {
+    padding: 36px 24px !important;
+  }
+  .testimonials-section-pad {
+    padding: 0 16px !important;
+  }
+
+  /* ── TRUST LOGOS ── */
+  .trust-logos-pad {
+    padding: 40px 16px !important;
+  }
+  .trust-logos-grid {
+    flex-wrap: wrap !important;
+    gap: 20px 24px !important;
+    justify-content: center !important;
+  }
+
+  /* ── INDUSTRIES GRID ── */
+  .industries-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* ── SERVICES GRID ── */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── SOLUTIONS SHOWCASE ── */
+  .solutions-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .solutions-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* ── CHATBOT ── */
+  .keysol-chatbot-window {
+    width: calc(100vw - 32px) !important;
+    height: 70vh !important;
+    bottom: 80px !important;
+    right: 16px !important;
+    left: 16px !important;
+    border-radius: 20px !important;
+  }
+  .keysol-chatbot-trigger {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  /* ── GENERAL ── */
   .section-mobile-pad {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }

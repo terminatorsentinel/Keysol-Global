@@ -83,7 +83,7 @@ export function ProcessSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} style={{
+    <section ref={ref} className="process-section-pad" style={{
       width: "100%",
       background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)",
       padding: "120px 0",
@@ -160,10 +160,11 @@ export function ProcessSection() {
         </div>
 
         {/* Steps grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
+        <div className="process-steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
 
           {/* Connecting line */}
           <motion.div
+            className="process-connector-line"
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
@@ -182,6 +183,7 @@ export function ProcessSection() {
           {steps.map((step, i) => (
             <motion.div
               key={i}
+              className="process-step-pad"
               initial={{ y: 50 }}
               animate={inView ? { y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.12, type: "spring", stiffness: 90 }}

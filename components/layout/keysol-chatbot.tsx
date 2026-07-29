@@ -757,7 +757,7 @@ export function KeySolChatbot() {
   return (
     <>
       {/* ── FAB Button ───────────────────────────────────────────── */}
-      <div style={{ position: "fixed", bottom: 28, right: 28, zIndex: 9999 }}>
+      <div className="keysol-chatbot-trigger" style={{ position: "fixed", bottom: 28, right: 28, zIndex: 9999 }}>
         <AnimatePresence>
           {!isOpen && (
             <motion.div
@@ -869,6 +869,7 @@ export function KeySolChatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.88, y: 24 }}
             transition={{ type: "spring", stiffness: 340, damping: 28 }}
+            className="keysol-chatbot-window"
             style={{
               position: "fixed", bottom: 28, right: 28,
               width: 420, height: 660,

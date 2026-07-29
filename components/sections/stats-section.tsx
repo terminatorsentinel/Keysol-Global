@@ -289,7 +289,7 @@ export function StatsSection() {
   ];
 
   return (
-    <section ref={ref} style={{
+    <section ref={ref} className="stats-section-pad" style={{
       width: "100%",
       background: "linear-gradient(180deg, #fafafa 0%, #f8fafc 50%, #fafafa 100%)",
       padding: "120px 0",
@@ -315,7 +315,7 @@ export function StatsSection() {
       />
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 48px", position: "relative", zIndex: 10 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
+        <div className="stats-content-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
           
           {/* Left — Content */}
           <div>
@@ -451,7 +451,7 @@ export function StatsSection() {
           </div>
 
           {/* Right — Stats Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+          <div className="stats-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
             {stats.map((stat, i) => (
               <StatCard
                 key={i}

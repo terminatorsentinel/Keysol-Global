@@ -98,7 +98,7 @@ export function Testimonials() {
       <div style={{ position: "absolute", top: 30, right: 240, width: 200, height: 70, borderRadius: 10, background: "rgba(160,220,210,0.2)", pointerEvents: "none" }} />
 
       {/* Main content */}
-      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 40px", position: "relative", zIndex: 10 }}>
+      <div className="testimonials-section-pad" style={{ maxWidth: 1180, margin: "0 auto", padding: "0 40px", position: "relative", zIndex: 10 }}>
 
         {/* White card */}
         <motion.div
@@ -115,9 +115,10 @@ export function Testimonials() {
             gridTemplateColumns: "1.3fr 1fr",
             minHeight: 480,
           }}
+          className="testimonials-card-grid"
         >
           {/* ─── LEFT: text content ─── */}
-          <div style={{
+          <div className="testimonials-text-pad" style={{
             padding: "64px 60px",
             display: "flex",
             flexDirection: "column",
@@ -256,7 +257,7 @@ export function Testimonials() {
           </div>
 
           {/* ─── RIGHT: person photo ─── */}
-          <div style={{
+          <div className="testimonials-photo-panel" style={{
             position: "relative",
             overflow: "hidden",
             background: "linear-gradient(135deg, #e8f4fb 0%, #d0ecf7 100%)",
