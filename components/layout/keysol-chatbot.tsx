@@ -427,7 +427,7 @@ function scoreIntent(input: string, intent: Intent): number {
 }
 
 /* ── Context-aware response selector ───────────────────────────────────── */
-function getBotResponse(input: string, lastTopic?: string): BotResponse {
+function getBotResponse(input: string, lastTopic?: string): BotResponse | null {
   const lower = input.toLowerCase().trim();
 
   // Score all intents
@@ -436,8 +436,8 @@ function getBotResponse(input: string, lastTopic?: string): BotResponse {
     score: scoreIntent(input, intent),
   })).filter((s) => s.score > 0).sort((a, b) => b.score - a.score);
 
-  // If strong match found
-  if (scored.length > 0 && scored[0].score >= 5) {
+  // If match found, return immediately in 0ms!
+  if (scored.length > 0 && scored[0].score >= 3) {
     return scored[0].intent.response;
   }
 
@@ -480,15 +480,8 @@ function getBotResponse(input: string, lastTopic?: string): BotResponse {
     };
   }
 
-  // Default — escalate to human
-  return {
-    text: "That's a great question — I want to make sure you get the most accurate answer possible.\n\nFor this specific enquiry, our team would be best placed to respond thoughtfully. Would you like to reach out to them directly?",
-    links: [
-      { label: "Contact Our Team →", href: "/contact/" },
-      { label: "Book a Free Call →", href: "/consultancy/" },
-    ],
-    chips: ["What services do you offer?", "How does pricing work?", "Book a consultation"],
-  };
+  // No instant local pattern matched -> delegate to high-speed Groq API
+  return null;
 }
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
@@ -690,14 +683,33 @@ export function KeySolChatbot() {
 
   const sendMessage = useCallback(async (text: string) => {
     if (!text.trim()) return;
+    const cleanText = text.trim();
     const userMsg: Message = {
       id: `u-${Date.now()}`,
       role: "user",
-      text: text.trim(),
+      text: cleanText,
       timestamp: new Date(),
     };
-    setMessages((prev) => [...prev, userMsg]);
     setInput("");
+
+    // 1. Check for INSTANT 0.00ms local response first
+    const instantMatch = getBotResponse(cleanText);
+    if (instantMatch) {
+      const botMsg: Message = {
+        id: `b-${Date.now()}`,
+        role: "bot",
+        text: instantMatch.text,
+        links: instantMatch.links,
+        topic: instantMatch.topic,
+        chips: instantMatch.chips || DEFAULT_CHIPS,
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, userMsg, botMsg]);
+      return;
+    }
+
+    // 2. Otherwise fall back to high-speed Groq API
+    setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
 
     try {
@@ -711,7 +723,7 @@ export function KeySolChatbot() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: [...history, { role: "user", content: text.trim() }],
+          messages: [...history, { role: "user", content: cleanText }],
           sessionId,
         }),
       });
