@@ -707,20 +707,16 @@ export function KeySolChatbot() {
         .slice(-10)
         .map((m) => ({ role: m.role === "bot" ? "assistant" : "user", content: m.text }));
 
-      const [res] = await Promise.all([
-        fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: [...history, { role: "user", content: text.trim() }],
-            sessionId,
-          }),
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...history, { role: "user", content: text.trim() }],
+          sessionId,
         }),
-        // Enforce minimum 2.5 second delay so response feels considered, not instant
-        new Promise((resolve) => setTimeout(resolve, 2500)),
-      ]);
+      });
 
-      const data = (res as Response).ok ? await (res as Response).json() : null;
+      const data = res.ok ? await res.json() : null;
       const replyText = data?.reply || "I'm having a little trouble right now. Please try again or reach us at **contact@keysolglobal.com**.";
 
       const botMsg: Message = {
