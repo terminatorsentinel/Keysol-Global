@@ -720,14 +720,15 @@ function AnimatedWord({ word, color }: { word: string; color: string }) {
 function HeroCard({ current }: { current: number }) {
   const slide = industrySlides[current];
   return (
-    <div className="relative flex flex-col items-center" style={{ gap:20 }}>
-      <div className="absolute pointer-events-none" style={{ left:-60, top:"6%", height:"58%", display:"flex", gap:9, opacity:0.5 }}>
+    <div className="relative flex flex-col items-center" style={{ gap:20, width:"100%", maxWidth:460 }}>
+      <div className="absolute pointer-events-none" style={{ left:-40, top:"6%", height:"58%", display:"flex", gap:9, opacity:0.5 }}>
         {[...Array(5)].map((_,i) => <div key={i} className="rounded-full" style={{ width:2, height:"100%", background:"#4ECDC4" }}/>)}
       </div>
       <div
         className="relative overflow-hidden"
         style={{
-          width:400, height:400,
+          width:"min(400px, 44vw)",
+          height:"min(400px, 44vw)",
           borderRadius:"22px 110px 22px 22px",
           background: slide.bg,
           transition:"background 0.7s ease",
@@ -749,7 +750,7 @@ function HeroCard({ current }: { current: number }) {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="flex flex-col gap-[6px]" style={{ width:400 }}>
+      <div className="flex flex-col gap-[6px]" style={{ width:"min(400px, 44vw)" }}>
         <div style={{ height:2, background:"#4ECDC4", borderRadius:2, opacity:0.7 }}/>
         <div style={{ height:2, background:"#4ECDC4", borderRadius:2, width:"68%", opacity:0.4 }}/>
       </div>
@@ -769,6 +770,7 @@ function HeroCard({ current }: { current: number }) {
   );
 }
 
+
 export function Hero() {
   const [step, setStep] = useState(0);
   /* One master clock drives everything in lockstep */
@@ -783,17 +785,18 @@ export function Hero() {
   return (
     <section className="relative bg-white overflow-hidden" style={{ paddingTop:68 }}>
       <div className="w-full max-w-7xl mx-auto hero-outer-pad" style={{ paddingLeft:40, paddingRight:40 }}>
-        <div className="grid items-center hero-grid" style={{ minHeight:"calc(100vh - 100px)", gridTemplateColumns:"1fr 1fr", gap:48 }}>
-          <div className="hero-text flex flex-col" style={{ gap:28, maxWidth:480, paddingTop:16 }}>
+        {/* Desktop: 2-column, Mobile: 1-column. No min-height so no blank space. */}
+        <div className="grid items-center hero-grid" style={{ padding:"60px 0 72px", gridTemplateColumns:"1fr 1fr", gap:48 }}>
+          <div className="hero-text flex flex-col" style={{ gap:28, maxWidth:560, paddingTop:0 }}>
             <div style={{ display:"flex", alignItems:"center", gap:10 }}>
               <div style={{ width:2, height:18, background:"#9CA3AF", borderRadius:2, flexShrink:0 }}/>
               <span style={{ fontSize:13, color:"#6B7280", fontWeight:400, letterSpacing:"0.01em" }}>Shaping Smarter Business</span>
             </div>
             <div style={{ display:"flex", flexDirection:"column", gap:0 }}>
               {["AI-enabled ecosystems","that make commerce"].map((line,i) => (
-                <h1 key={i} style={{ fontSize:"clamp(2.4rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, color:"#1e2d3d", letterSpacing:"-0.02em", margin:0, whiteSpace:"nowrap" }}>{line}</h1>
+                <h1 key={i} style={{ fontSize:"clamp(2rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, color:"#1e2d3d", letterSpacing:"-0.02em", margin:0, whiteSpace:"nowrap" }}>{line}</h1>
               ))}
-              <div className="hero-text-animated" style={{ fontSize:"clamp(2.4rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, letterSpacing:"-0.02em", whiteSpace:"nowrap" }}>
+              <div className="hero-text-animated" style={{ fontSize:"clamp(2rem,4vw,3.4rem)", fontWeight:800, lineHeight:1.16, letterSpacing:"-0.02em", whiteSpace:"nowrap" }}>
                 <AnimatedWord word={words[wordIndex]} color={slideColor}/>
               </div>
             </div>
@@ -816,7 +819,8 @@ export function Hero() {
               </Link>
             </div>
           </div>
-          <div className="hero-card-mobile lg:flex items-center justify-end" style={{ display:"none", paddingRight:8 }}>
+          {/* Hero card: visible on md and above, hidden only on mobile (handled by CSS class) */}
+          <div className="hero-card-mobile flex items-center justify-end" style={{ paddingRight:8 }}>
             <HeroCard current={current}/>
           </div>
         </div>
