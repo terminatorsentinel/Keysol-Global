@@ -278,16 +278,132 @@ export function Navbar() {
           >
             <div style={{ padding: "8px 16px 16px" }}>
               {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center px-3 py-3.5 text-[#374151] text-sm font-medium hover:bg-[#F0F7FF] hover:text-[#1A56DB] rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                  {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 ml-1 text-[#9CA3AF]" />}
-                </Link>
+                <div key={item.name}>
+                  {item.hasDropdown ? (
+                    /* ── Solutions: tap to expand ── */
+                    <div>
+                      <button
+                        onClick={() =>
+                          setActiveDropdown(activeDropdown === item.name ? null : item.name)
+                        }
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "12px",
+                          background: activeDropdown === item.name ? "#F0F7FF" : "transparent",
+                          color: activeDropdown === item.name ? "#1A56DB" : "#374151",
+                          fontSize: 14,
+                          fontWeight: 500,
+                          border: "none",
+                          borderRadius: 8,
+                          cursor: "pointer",
+                          fontFamily: "inherit",
+                        }}
+                      >
+                        {item.name}
+                        <ChevronDown
+                          className="w-4 h-4"
+                          style={{
+                            transform: activeDropdown === item.name ? "rotate(180deg)" : "rotate(0deg)",
+                            transition: "transform 0.2s ease",
+                            color: activeDropdown === item.name ? "#1A56DB" : "#9CA3AF",
+                          }}
+                        />
+                      </button>
+
+                      {/* Expanded Solutions List */}
+                      <AnimatePresence>
+                        {activeDropdown === item.name && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            style={{
+                              overflow: "hidden",
+                              background: "#F8FAFF",
+                              borderRadius: 10,
+                              margin: "4px 0 8px",
+                              border: "1px solid #E8F0FE",
+                            }}
+                          >
+                            {platformItems.map((pi, idx) => (
+                              <Link
+                                key={idx}
+                                href={pi.href}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  setIsMobileMenuOpen(false);
+                                }}
+                                style={{ textDecoration: "none", display: "block" }}
+                              >
+                                <div
+                                  style={{
+                                    padding: "12px 16px",
+                                    borderBottom: idx < platformItems.length - 1
+                                      ? "1px solid #EEF2FF"
+                                      : "none",
+                                  }}
+                                >
+                                  <div style={{
+                                    fontSize: 14,
+                                    fontWeight: 600,
+                                    color: "#111827",
+                                    marginBottom: 2,
+                                  }}>
+                                    {pi.title}
+                                  </div>
+                                  <div style={{
+                                    fontSize: 12,
+                                    color: "#6B7280",
+                                    lineHeight: 1.5,
+                                  }}>
+                                    {pi.desc}
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+
+                            {/* Get Started CTA inside dropdown */}
+                            <div style={{ padding: "10px 12px", background: "#EEF2FF", borderRadius: "0 0 10px 10px" }}>
+                              <Link
+                                href="/contact/"
+                                onClick={() => { setActiveDropdown(null); setIsMobileMenuOpen(false); }}
+                                style={{
+                                  display: "block",
+                                  background: "#2563EB",
+                                  color: "white",
+                                  borderRadius: 8,
+                                  padding: "10px 16px",
+                                  fontSize: 13,
+                                  fontWeight: 600,
+                                  textDecoration: "none",
+                                  textAlign: "center",
+                                }}
+                              >
+                                Get Started →
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    /* ── Regular nav links ── */
+                    <Link
+                      href={item.href}
+                      className="flex items-center px-3 py-3.5 text-[#374151] text-sm font-medium hover:bg-[#F0F7FF] hover:text-[#1A56DB] rounded-lg transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
               ))}
+
+              {/* Book Consultation CTA */}
               <div style={{ borderTop: "1px solid #F1F5F9", marginTop: 8, paddingTop: 12 }}>
                 <Link
                   href="/consultation/"
@@ -311,6 +427,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
     </header>
   );
 }
